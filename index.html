@@ -1,1 +1,397 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LYRA Travels | Alappuzha</title>
+<meta name="description" content="Book premium travel vehicles and tour packages with LYRA Travels, Alappuzha.">
+<style>
+:root {
+  --gold:#d6ad60;
+  --black:#080a0d;
+  --card:#14171c;
+  --white:#f5f2eb;
+  --muted:#a7a7a7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ background:var(--black);
+ color:var(--white);
+ font-family:Arial,sans-serif;
+ line-height:1.6;
+}
+header{
+ position:sticky;top:0;z-index:10;
+ background:#080a0df2;
+ border-bottom:1px solid #333;
+ padding:15px 6%;
+ display:flex;justify-content:space-between;
+ align-items:center;flex-wrap:wrap;gap:12px;
+}
+.logo{font-size:25px;font-weight:900;color:var(--gold);letter-spacing:3px}
+.logo small{display:block;font-size:9px;letter-spacing:5px;color:white}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:13px}
+nav a:hover{color:var(--gold)}
+.hero{
+ min-height:510px;padding:90px 7%;
+ display:flex;align-items:center;
+ background:linear-gradient(90deg,#080a0df5,#080a0d55),
+ url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600') center/cover;
+}
+.hero-content{max-width:650px}
+.tag{color:var(--gold);letter-spacing:4px;font-size:12px}
+h1{font-size:clamp(38px,7vw,70px);line-height:1.1;margin:15px 0}
+h1 span{color:var(--gold)}
+.hero p{color:#ddd;max-width:500px;margin-bottom:25px}
+.btn{
+ display:inline-block;padding:13px 24px;
+ background:var(--gold);color:#111;
+ text-decoration:none;font-weight:bold;
+ border:0;border-radius:4px;cursor:pointer;
+}
+.btn-outline{
+ background:transparent;color:var(--gold);
+ border:1px solid var(--gold);margin-left:8px;
+}
+section{padding:65px 6%}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title h2{font-size:32px;color:var(--gold)}
+.section-title p{color:var(--muted)}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:20px;
+}
+.card{
+ background:var(--card);
+ border:1px solid #292d32;
+ border-radius:10px;overflow:hidden;
+}
+.card img{width:100%;height:165px;object-fit:cover}
+.card-body{padding:17px}
+.card h3{margin-bottom:5px}
+.rate{color:var(--gold);font-size:21px;font-weight:bold}
+.muted{color:var(--muted);font-size:13px}
+.booking{
+ max-width:850px;margin:auto;
+ background:var(--card);padding:25px;
+ border:1px solid #39332a;border-radius:12px;
+}
+.form-grid{
+ display:grid;grid-template-columns:1fr 1fr;gap:15px;
+}
+.field{margin-bottom:15px}
+label{display:block;font-size:13px;color:var(--gold);margin-bottom:6px}
+input,select,textarea{
+ width:100%;padding:13px;background:#090c10;
+ color:white;border:1px solid #414141;
+ border-radius:5px;font-size:15px;
+}
+input:focus,select:focus{outline:1px solid var(--gold)}
+.full{grid-column:1/-1}
+.total{
+ background:#090c10;border:1px solid var(--gold);
+ padding:18px;border-radius:7px;margin:15px 0;
+}
+.total strong{color:var(--gold);font-size:27px}
+.note{font-size:12px;color:#bbb;margin-top:7px}
+.package-card img{height:190px}
+.package-card .rate{font-size:16px}
+.contact{
+ text-align:center;background:#14171c;
+ border-top:1px solid #333;
+}
+.contact p{margin:8px;color:#ccc}
+footer{
+ text-align:center;padding:25px;
+ background:#050607;color:#888;font-size:12px;
+}
+button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:600px){
+ header{padding:12px 5%}
+ nav{gap:12px}
+ nav a{font-size:11px}
+ .hero{padding:65px 6%;min-height:440px}
+ section{padding:48px 5%}
+ .form-grid{grid-template-columns:1fr}
+ .full{grid-column:auto}
+ .btn{padding:12px 16px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">LYRA <span>TRAVELS</span>
+  <small>YOUR JOURNEY, OUR PRIORITY</small>
+ </div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#vehicles">Vehicles</a>
+  <a href="#booking">Booking</a>
+  <a href="#packages">Packages</a>
+  <a href="#contact">Contact</a>
+ </nav>
+</header>
+
+<div class="hero" id="home">
+ <div class="hero-content">
+  <div class="tag">WELCOME TO LYRA TRAVELS</div>
+  <h1>Travel Beyond<br><span>Boundaries.</span></h1>
+  <p>Discover Kerala and beyond with comfortable vehicles, reliable service and unforgettable journeys.</p>
+  <a href="#booking" class="btn">BOOK YOUR TRIP</a>
+  <a href="#packages" class="btn btn-outline">EXPLORE TOURS</a>
+ </div>
+</div>
+
+<section id="vehicles">
+ <div class="section-title">
+  <h2>Our Fleet</h2>
+  <p>Choose the perfect vehicle for your journey</p>
+ </div>
+ <div class="grid" id="vehicleGrid"></div>
+</section>
+
+<section id="booking">
+ <div class="section-title">
+  <h2>Book Your Journey</h2>
+  <p>Fill in your trip details to request a booking</p>
+ </div>
+ <div class="booking">
+  <form id="bookingForm">
+   <div class="form-grid">
+    <div class="field">
+     <label>Customer Name *</label>
+     <input id="customer" required placeholder="Your full name">
+    </div>
+    <div class="field">
+     <label>Mobile Number *</label>
+     <input id="phone" required type="tel" pattern="[0-9]{10}" placeholder="10 digit mobile number">
+    </div>
+    <div class="field">
+     <label>Pickup Location (From) *</label>
+     <input id="from" required placeholder="Starting location">
+    </div>
+    <div class="field">
+     <label>Destination (To) *</label>
+     <input id="to" required placeholder="Destination">
+    </div>
+    <div class="field">
+     <label>Journey Date *</label>
+     <select id="date" required>
+      <option value="">Select date</option>
+     </select>
+    </div>
+    <div class="field">
+     <label>Select Vehicle *</label>
+     <select id="vehicle" required>
+      <option value="">Choose vehicle</option>
+     </select>
+    </div>
+    <div class="field">
+     <label>Total Round-trip Distance (KM) *</label>
+     <input id="km" type="number" min="1" step="1" required placeholder="Enter total return distance">
+    </div>
+    <div class="field">
+     <label>Driver Bata (₹) *</label>
+     <input id="bata" type="number" min="0" value="0" required>
+    </div>
+    <div class="field full">
+     <label>Additional Requirements</label>
+     <textarea id="requirements" rows="3" placeholder="Any special requirements?"></textarea>
+    </div>
+   </div>
+
+   <div class="total">
+    <div>Estimated Distance Charge</div>
+    <div id="distanceCharge">₹0</div>
+    <div>Driver Bata: <span id="bataDisplay">₹0</span></div>
+    <hr style="border-color:#444;margin:10px 0">
+    <div>Estimated Total</div>
+    <strong id="total">₹0</strong>
+    <p class="note">Final trip fare will be confirmed by LYRA Travels after reviewing the trip and driver bata.</p>
+   </div>
+   <button type="submit" class="btn" style="width:100%">SEND BOOKING VIA WHATSAPP</button>
+  </form>
+ </div>
+</section>
+
+<section id="packages">
+ <div class="section-title">
+  <h2>Tour Packages</h2>
+  <p>Explore beautiful destinations with LYRA Travels</p>
+ </div>
+ <div class="grid">
+  <div class="card package-card">
+   <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700" alt="Munnar">
+   <div class="card-body">
+    <h3>Munnar Tour</h3>
+    <p class="muted">Explore tea gardens and beautiful mountain views.</p>
+    <p class="rate">Contact for Price</p>
+    <button class="btn" onclick="packageBooking('Munnar Tour')">BOOK NOW</button>
+   </div>
+  </div>
+  <div class="card package-card">
+   <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=700" alt="Vagamon">
+   <div class="card-body">
+    <h3>Vagamon Tour</h3>
+    <p class="muted">Enjoy green meadows and peaceful hills.</p>
+    <p class="rate">Contact for Price</p>
+    <button class="btn" onclick="packageBooking('Vagamon Tour')">BOOK NOW</button>
+   </div>
+  </div>
+  <div class="card package-card">
+   <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=700" alt="Wayanad">
+   <div class="card-body">
+    <h3>Wayanad Tour</h3>
+    <p class="muted">Discover forests, waterfalls and nature.</p>
+    <p class="rate">Contact for Price</p>
+    <button class="btn" onclick="packageBooking('Wayanad Tour')">BOOK NOW</button>
+   </div>
+  </div>
+  <div class="card package-card">
+   <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=700" alt="Alappuzha">
+   <div class="card-body">
+    <h3>Alappuzha Backwater</h3>
+    <p class="muted">Experience the beauty of Kerala backwaters.</p>
+    <p class="rate">Contact for Price</p>
+    <button class="btn" onclick="packageBooking('Alappuzha Backwater')">BOOK NOW</button>
+   </div>
+  </div>
+ </div>
+ <p class="muted" style="text-align:center;margin-top:20px">
+  More tour packages will be added soon.
+ </p>
+</section>
+
+<section class="contact" id="contact">
+ <div class="section-title">
+  <h2>Contact Us</h2>
+  <p>We are ready to make your journey special</p>
+ </div>
+ <p><strong>LYRA Travels</strong></p>
+ <p>Pathirappally P.O, Alappuzha, Kerala - 688521</p>
+ <p>Phone: 7034925148 | 8129845148</p>
+ <a class="btn" href="https://wa.me/917034925148">CHAT ON WHATSAPP</a>
+</section>
+
+<footer>
+ © <span id="year"></span> LYRA Travels. All Rights Reserved.
+ <p>YOUR JOURNEY, OUR PRIORITY</p>
+</footer>
+
+<script>
+const WHATSAPP = "917034925148";
+
+const vehicles = [
+ {name:"Traveller - 12 Seat",rate:25,image:"https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=700"},
+ {name:"Traveller - 17 Seat",rate:25,image:"https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=700"},
+ {name:"Traveller - 22 Seat",rate:25,image:"https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=700"},
+ {name:"Innova",rate:25,image:"https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=700"},
+ {name:"Innova Crysta",rate:25,image:"https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=700"},
+ {name:"Kia Clavis EV",rate:23,image:"https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=700"},
+ {name:"Ertiga",rate:22,image:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=700"},
+ {name:"Swift",rate:22,image:"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=700"},
+ {name:"WagonR",rate:22,image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700"}
+];
+
+const grid=document.getElementById("vehicleGrid");
+const vehicleSelect=document.getElementById("vehicle");
+
+vehicles.forEach((v,i)=>{
+ grid.innerHTML+=`
+ <div class="card">
+ <img src="${v.image}" alt="${v.name}" loading="lazy">
+ <div class="card-body">
+ <h3>${v.name}</h3>
+ <p class="rate">₹${v.rate} / KM</p>
+ <p class="muted">AC Vehicle</p>
+ <button class="btn" onclick="chooseVehicle(${i})">SELECT VEHICLE</button>
+ </div></div>`;
+ vehicleSelect.innerHTML+=`<option value="${i}">${v.name} - ₹${v.rate}/KM</option>`;
+});
+
+function chooseVehicle(i){
+ vehicleSelect.value=i;
+ calculate();
+ document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+
+const today=new Date();
+today.setHours(0,0,0,0);
+const tomorrow=new Date(today);
+tomorrow.setDate(tomorrow.getDate()+1);
+
+function dateValue(d){
+ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+function dateLabel(d){
+ return d.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short",year:"numeric"});
+}
+document.getElementById("date").innerHTML=
+ `<option value="${dateValue(today)}">Today - ${dateLabel(today)}</option>
+ <option value="${dateValue(tomorrow)}">Tomorrow - ${dateLabel(tomorrow)}</option>`;
+
+function money(n){
+ return "₹"+Number(n).toLocaleString("en-IN");
+}
+
+function calculate(){
+ const index=vehicleSelect.value;
+ const km=Number(document.getElementById("km").value)||0;
+ const bata=Number(document.getElementById("bata").value)||0;
+ const rate=index===""?0:vehicles[Number(index)].rate;
+ const charge=km*rate;
+ document.getElementById("distanceCharge").textContent=money(charge);
+ document.getElementById("bataDisplay").textContent=money(bata);
+ document.getElementById("total").textContent=money(charge+bata);
+}
+vehicleSelect.addEventListener("change",calculate);
+document.getElementById("km").addEventListener("input",calculate);
+document.getElementById("bata").addEventListener("input",calculate);
+
+function packageBooking(name){
+ document.getElementById("requirements").value="Interested in "+name;
+ document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ const index=vehicleSelect.value;
+ const km=Number(document.getElementById("km").value);
+ const bata=Number(document.getElementById("bata").value);
+ const rate=vehicles[Number(index)].rate;
+ const charge=km*rate;
+ const total=charge+bata;
+
+ const msg=`*LYRA TRAVELS - NEW BOOKING REQUEST*
+
+Customer: ${document.getElementById("customer").value}
+Mobile: ${document.getElementById("phone").value}
+
+From: ${document.getElementById("from").value}
+To: ${document.getElementById("to").value}
+Journey Date: ${document.getElementById("date").value}
+
+Vehicle: ${vehicles[Number(index)].name}
+Rate: ₹${rate}/KM
+Total Round-trip KM: ${km}
+Distance Charge: ${money(charge)}
+Driver Bata: ${money(bata)}
+Estimated Total: ${money(total)}
+
+Additional Requirements:
+${document.getElementById("requirements").value || "None"}
+
+*Please confirm the final trip fare.*`;
+
+ window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank");
+});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
